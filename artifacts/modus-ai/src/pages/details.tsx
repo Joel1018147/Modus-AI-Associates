@@ -32,6 +32,19 @@ const sectionVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
+/* Which ecosystem cards span the full width of the "Our Systems" grid. A group
+   with more than 12 systems always does — its own list needs two columns. The
+   remaining narrow groups pair off two to a row, so when there is an odd number
+   of them the last one is promoted as well and the grid never ends on an
+   orphaned half-width card. */
+const WIDE_GROUP_INDEXES: ReadonlySet<number> = (() => {
+  const wide = new Set<number>();
+  const narrow: number[] = [];
+  systemGroups.forEach((g, i) => (g.systems.length > 12 ? wide.add(i) : narrow.push(i)));
+  if (narrow.length % 2 === 1) wide.add(narrow[narrow.length - 1]);
+  return wide;
+})();
+
 const detailsContent = {
   en: {
     backToHome: "Back to Home",
@@ -1379,10 +1392,7 @@ export default function Details() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {systemGroups.map((group, gi) => {
               const GroupIcon = group.icon;
-              // Wide groups (the large M-EasyCommerce ecosystem) span the full
-              // row and lay their systems out in two columns, so the grid never
-              // leaves an orphaned empty cell.
-              const isWide = group.systems.length > 12;
+              const isWide = WIDE_GROUP_INDEXES.has(gi);
               return (
                 <motion.div
                   key={group.brand}

@@ -1,5 +1,5 @@
 import type React from "react";
-  import { Building2, Wrench, ShoppingBag, Moon, GraduationCap } from "lucide-react";
+  import { Building2, Wrench, ShoppingBag, Moon, GraduationCap, Store } from "lucide-react";
   import type { Lang } from "@/contexts/LanguageContext";
 
   export type SystemId =
@@ -12,11 +12,12 @@ import type React from "react";
   | "commerce-inbox" | "commerce-analytics" | "commerce-marketing" | "commerce-webstore" | "commerce-wms"
   | "commerce-channelsync" | "commerce-payments" | "commerce-carriers" | "commerce-pos" | "commerce-mobile"
   | "commerce-compliance"
-  | "halal-main" | "halal-auth" | "halal-discover" | "halal-faith" | "halal-finance" | "halal-asha" | "halal-intelligence" | "halal-learn" | "halal-community" | "halal-commerce" | "halal-merchant" | "halal-studio" | "halal-analytics" | "halal-compliance" | "halal-operations" | "halal-gov" | "halal-knowledge" | "halal-vector" | "school-main" | "school-students" | "school-classes" | "school-attendance" | "school-classroom" | "school-assessment" | "school-grades" | "school-academic" | "school-tutor" | "school-pathways" | "school-timetable" | "school-enrol" | "school-finance" | "school-inbox" | "school-events" | "school-parent" | "school-portal" | "school-staff" | "school-intelligence";
+  | "halal-main" | "halal-auth" | "halal-discover" | "halal-faith" | "halal-finance" | "halal-asha" | "halal-intelligence" | "halal-learn" | "halal-community" | "halal-commerce" | "halal-merchant" | "halal-studio" | "halal-analytics" | "halal-compliance" | "halal-operations" | "halal-gov" | "halal-knowledge" | "halal-vector" | "school-main" | "school-students" | "school-classes" | "school-attendance" | "school-classroom" | "school-assessment" | "school-grades" | "school-academic" | "school-tutor" | "school-pathways" | "school-timetable" | "school-enrol" | "school-finance" | "school-inbox" | "school-events" | "school-parent" | "school-portal" | "school-staff" | "school-intelligence"
+  | "pos-main" | "pos-till" | "pos-analyst" | "pos-catalogue" | "pos-stock" | "pos-loyalty" | "pos-compliance" | "pos-workforce" | "pos-sync";
 export type SystemLink = { id: SystemId; name: string; url: string; isMain?: boolean };
 export type SystemGroup = {
   brand: string;
-  taglineKey: "easyDoTagline" | "easyToolsTagline" | "easyCommerceTagline" | "easyHalalTagline" | "easySchoolTagline";
+  taglineKey: "easyDoTagline" | "easyToolsTagline" | "easyCommerceTagline" | "easyHalalTagline" | "easySchoolTagline" | "easyPosTagline";
   icon: React.ComponentType<{ className?: string }>;
   styles: { iconWrap: string; icon: string; badge: string; arrow: string; card: string };
   systems: SystemLink[];
@@ -166,6 +167,29 @@ export const systemGroups: SystemGroup[] = [
       { id: "school-intelligence", name: "M-EasySchool Intelligence AI+", url: "https://m-easyschool-ai-production.up.railway.app/modules/intelligence" },
     ],
   },
+  {
+    brand: "M-EasyPOS AI+ Super App",
+    taglineKey: "easyPosTagline",
+    icon: Store,
+    styles: {
+      iconWrap: "bg-rose-500/10 border-rose-500/30",
+      icon: "text-rose-400",
+      badge: "bg-rose-500/15 text-rose-400 border-rose-500/30",
+      arrow: "group-hover:text-rose-400",
+      card: "hover:border-rose-500/40 hover:shadow-[0_0_30px_rgba(190,24,93,0.14)]",
+    },
+    systems: [
+      { id: "pos-main", name: "M-EasyPOS AI+ Super App", isMain: true, url: "https://m-easypos-ai-production.up.railway.app/#subsystems" },
+      { id: "pos-till", name: "M-EasyTill AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/till" },
+      { id: "pos-analyst", name: "M-EasyAnalyst AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/analyst" },
+      { id: "pos-catalogue", name: "M-EasyCatalogue AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/catalogue" },
+      { id: "pos-stock", name: "M-EasyStock AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/stock" },
+      { id: "pos-loyalty", name: "M-EasyLoyalty AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/loyalty" },
+      { id: "pos-compliance", name: "M-EasyCompliance AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/compliance" },
+      { id: "pos-workforce", name: "M-EasyWorkforce AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/workforce" },
+      { id: "pos-sync", name: "M-EasySync AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/sync" },
+    ],
+  },
 ];
 
 export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
@@ -243,6 +267,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "A student's own timetable, grades, homework (with submission), attendance and pastoral notes.",
     "school-staff": "A teacher directory, leave requests with approval and CPD records, with an AI workload analysis.",
     "school-intelligence": "A ten-metric whole-school overview with attendance, grade, finance and enrolment trends and an AI principal briefing.",
+    "pos-main": "Multi-branch retail on one login — the counter, the stockroom and the filing as a single system, with what each person can open decided by their role.",
+    "pos-till": "Ring a sale at any register, park a bill and recall it at another, take a return, and read back every sale with what happened to it. A register opens on a counted float and closes on a counted drawer.",
+    "pos-analyst": "Ask from the top bar of any screen, by typing or out loud. Prepared and open questions are both answered by real queries against your own rows, so every figure is computed rather than written by a language model.",
+    "pos-catalogue": "Names, SKUs and prices, plus the bundle and discount rules the till applies on its own without a cashier deciding. Barcodes and shelf labels print from the same records.",
+    "pos-stock": "Order stock in, move it between your own locations, pick it in bin order, count what is really there and post the difference. Every location knows what is in it and what is short.",
+    "pos-loyalty": "Who bought what and how to reach them, what a trade or member account pays, and what the points scheme owes. Vouchers know their own value and what has been redeemed.",
+    "pos-compliance": "LHDN MyInvois submissions and their status, and the day’s takings pushed into the accounting system. A sale records the tax it actually carried, so an invoice reprinted next year still says what was charged.",
+    "pos-workforce": "Rosters, clock-ins and what each shift costs. Lateness is computed against the schedule at the moment somebody clocks in, which is the only moment it can be got right.",
+    "pos-sync": "You do not have to start from an empty catalogue. Bring one in from a spreadsheet, or connect the till system you already run — Square, Clover, Loyverse or AutoCount — and pull the products and sales across.",
   },
   bm: {
     "easydo-main": "Platform pengurusan perniagaan berkuasa AI serba lengkap yang menggabungkan CRM, komunikasi, pemasaran dan sokongan pelanggan dalam satu sistem — direka untuk membantu perniagaan menguruskan keseluruhan perjalanan pelanggan dengan mudah.",
@@ -318,6 +351,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "Jadual waktu, gred, kerja rumah (dengan penghantaran), kehadiran dan nota pastoral pelajar sendiri.",
     "school-staff": "Direktori guru, permohonan cuti dengan kelulusan dan rekod CPD, dengan analisis beban kerja AI.",
     "school-intelligence": "Gambaran seluruh sekolah sepuluh metrik dengan trend kehadiran, gred, kewangan dan pendaftaran serta taklimat pengetua AI.",
+    "pos-main": "Peruncitan berbilang cawangan dengan satu log masuk — kaunter, stor stok dan pemfailan sebagai satu sistem, dengan apa yang boleh dibuka oleh setiap orang ditentukan oleh perananya.",
+    "pos-till": "Daftar jualan di mana-mana kaunter, letak bil dan panggil semula di kaunter lain, terima pulangan, dan baca semula setiap jualan berserta apa yang berlaku kepadanya. Kaunter dibuka dengan float yang dikira dan ditutup dengan laci yang dikira.",
+    "pos-analyst": "Tanya dari bar atas mana-mana skrin, secara menaip atau bersuara. Soalan sedia ada dan soalan terbuka kedua-duanya dijawab oleh pertanyaan sebenar terhadap baris data anda sendiri, jadi setiap angka dikira, bukan ditulis oleh model bahasa.",
+    "pos-catalogue": "Nama, SKU dan harga, serta peraturan bundel dan diskaun yang digunakan kaunter secara automatik tanpa juruwang membuat keputusan. Kod bar dan label rak dicetak daripada rekod yang sama.",
+    "pos-stock": "Pesan stok masuk, pindahkan antara lokasi anda sendiri, pilih mengikut susunan bin, kira apa yang benar-benar ada dan catat perbezaannya. Setiap lokasi tahu apa yang ada di dalamnya dan apa yang kurang.",
+    "pos-loyalty": "Siapa membeli apa dan cara menghubungi mereka, apa yang dibayar oleh akaun perdagangan atau ahli, dan berapa yang terhutang oleh skim mata. Baucar tahu nilainya sendiri dan apa yang telah ditebus.",
+    "pos-compliance": "Penghantaran MyInvois LHDN dan statusnya, serta kutipan harian ditolak ke dalam sistem perakaunan. Setiap jualan merekod cukai yang sebenarnya dikenakan, jadi invois yang dicetak semula tahun depan masih menyatakan apa yang dicaj.",
+    "pos-workforce": "Jadual syif, rekod masuk dan kos setiap syif. Kelewatan dikira berbanding jadual pada saat seseorang merekod masuk, satu-satunya saat ia boleh dikira dengan betul.",
+    "pos-sync": "Anda tidak perlu bermula daripada katalog kosong. Import daripada hamparan, atau sambungkan sistem kaunter yang anda guna sekarang — Square, Clover, Loyverse atau AutoCount — dan tarik masuk produk serta jualan.",
   },
   cn: {
     "easydo-main": "一体化的 AI 驱动业务管理平台，将 CRM、沟通、营销和客户支持整合到单一系统中——旨在帮助企业轻松管理整个客户旅程。",
@@ -393,6 +435,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "学生本人的课表、成绩、作业（含提交）、考勤和关怀记录。",
     "school-staff": "教师名录、带审批的请假申请和 CPD 记录，并配备 AI 工作量分析。",
     "school-intelligence": "十项指标的全校总览，涵盖考勤、成绩、财务和招生趋势，并提供 AI 校长简报。",
+    "pos-main": "多门店零售，一个登录——收银台、仓库与报税归为一套系统，每个人能打开什么由其角色决定。",
+    "pos-till": "在任意收银机开单，挂单后在另一台召回，受理退货，并回查每笔销售及其后续。收银机以点验过的备用金开班，以点验过的钱箱收班。",
+    "pos-analyst": "在任意页面的顶栏提问，可以打字也可以语音。预置问题与开放问题均由针对您自己数据的真实查询作答，所以每个数字都是算出来的，而不是语言模型写出来的。",
+    "pos-catalogue": "名称、SKU 与价格，以及收银机自动套用的套餐与折扣规则，无需收银员判断。条码与货架标签从同一批记录打印。",
+    "pos-stock": "进货、在自有库位间调拨、按库位顺序拣货、盘点实际库存并入账差异。每个库位都知道自己有什么、缺什么。",
+    "pos-loyalty": "谁买了什么、如何联系他们，批发或会员账户执行什么价，以及积分计划尚欠多少。代金券自带面额与已核销记录。",
+    "pos-compliance": "LHDN MyInvois 报送及其状态，以及当日收入推送至会计系统。每笔销售记录当时实际承担的税额，因此明年重打的发票仍然是当时收取的金额。",
+    "pos-workforce": "排班、打卡与每个班次的成本。迟到在打卡那一刻对照排班计算——那是唯一能算对的时刻。",
+    "pos-sync": "不必从空白商品库开始。从表格导入，或连接您现有的收银系统——Square、Clover、Loyverse 或 AutoCount——将商品与销售记录一并拉过来。",
   },
   id: {
     "easydo-main": "Platform manajemen bisnis bertenaga AI serba lengkap yang menggabungkan CRM, komunikasi, pemasaran, dan dukungan pelanggan dalam satu sistem — dirancang untuk membantu bisnis mengelola seluruh perjalanan pelanggan dengan mudah.",
@@ -468,6 +519,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "Jadwal, nilai, pekerjaan rumah (dengan pengumpulan), kehadiran, dan catatan pastoral milik siswa sendiri.",
     "school-staff": "Direktori guru, pengajuan cuti dengan persetujuan, dan catatan CPD, dengan analisis beban kerja AI.",
     "school-intelligence": "Ikhtisar seluruh sekolah dengan sepuluh metrik mencakup tren kehadiran, nilai, keuangan, dan penerimaan, plus briefing kepala sekolah oleh AI.",
+    "pos-main": "Ritel multi-cabang dengan satu login — kasir, gudang, dan pelaporan pajak sebagai satu sistem, dengan apa yang bisa dibuka setiap orang ditentukan oleh perannya.",
+    "pos-till": "Catat penjualan di kasir mana pun, tahan tagihan dan panggil kembali di kasir lain, terima retur, dan telusuri setiap penjualan beserta apa yang terjadi padanya. Kasir dibuka dengan modal awal yang dihitung dan ditutup dengan laci yang dihitung.",
+    "pos-analyst": "Bertanya dari bilah atas layar mana pun, diketik atau diucapkan. Pertanyaan siap pakai maupun pertanyaan terbuka dijawab oleh kueri nyata atas baris data Anda sendiri, sehingga setiap angka dihitung, bukan ditulis oleh model bahasa.",
+    "pos-catalogue": "Nama, SKU, dan harga, plus aturan bundel dan diskon yang diterapkan kasir secara otomatis tanpa keputusan kasir. Barcode dan label rak dicetak dari catatan yang sama.",
+    "pos-stock": "Pesan stok masuk, pindahkan antar lokasi Anda sendiri, ambil sesuai urutan bin, hitung yang benar-benar ada, dan posting selisihnya. Setiap lokasi tahu isinya dan apa yang kurang.",
+    "pos-loyalty": "Siapa membeli apa dan cara menghubunginya, harga yang berlaku untuk akun grosir atau anggota, dan berapa yang terutang oleh program poin. Voucher tahu nilainya sendiri dan apa yang sudah ditukarkan.",
+    "pos-compliance": "Pengiriman MyInvois LHDN beserta statusnya, dan pendapatan harian yang didorong ke sistem akuntansi. Setiap penjualan mencatat pajak yang benar-benar dikenakan, sehingga faktur yang dicetak ulang tahun depan tetap menyebut jumlah yang ditagihkan.",
+    "pos-workforce": "Jadwal, absensi masuk, dan biaya setiap shift. Keterlambatan dihitung terhadap jadwal pada saat seseorang absen masuk — satu-satunya saat hal itu bisa dihitung dengan benar.",
+    "pos-sync": "Anda tidak perlu mulai dari katalog kosong. Impor dari spreadsheet, atau hubungkan sistem kasir yang sudah Anda pakai — Square, Clover, Loyverse, atau AutoCount — lalu tarik produk dan penjualannya.",
   },
   vn: {
     "easydo-main": "Nền tảng quản lý doanh nghiệp tích hợp toàn diện được hỗ trợ bởi AI, kết hợp CRM, giao tiếp, tiếp thị và hỗ trợ khách hàng trong một hệ thống duy nhất — được thiết kế để giúp doanh nghiệp quản lý toàn bộ hành trình khách hàng một cách dễ dàng.",
@@ -543,6 +603,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "Thời khóa biểu, điểm số, bài tập (có nộp bài), điểm danh và ghi chú chăm sóc của chính học sinh.",
     "school-staff": "Danh bạ giáo viên, đơn xin nghỉ có phê duyệt và hồ sơ CPD, cùng phân tích khối lượng công việc bằng AI.",
     "school-intelligence": "Tổng quan toàn trường với mười chỉ số về xu hướng điểm danh, điểm số, tài chính và tuyển sinh cùng bản tóm tắt cho hiệu trưởng bằng AI.",
+    "pos-main": "Bán lẻ đa chi nhánh với một lần đăng nhập — quầy thu ngân, kho hàng và hồ sơ thuế là một hệ thống duy nhất, ai mở được gì do vai trò quyết định.",
+    "pos-till": "Ghi một giao dịch ở bất kỳ quầy nào, treo hóa đơn rồi gọi lại ở quầy khác, nhận trả hàng, và tra cứu lại mọi giao dịch cùng những gì đã xảy ra với nó. Quầy mở bằng tiền lẻ đã đếm và đóng bằng ngăn kéo đã đếm.",
+    "pos-analyst": "Hỏi từ thanh trên cùng của bất kỳ màn hình nào, bằng cách gõ hoặc nói. Cả câu hỏi soạn sẵn lẫn câu hỏi mở đều được trả lời bằng truy vấn thực trên dữ liệu của bạn, nên mọi con số đều được tính ra chứ không do mô hình ngôn ngữ viết ra.",
+    "pos-catalogue": "Tên, SKU và giá, cùng các quy tắc combo và chiết khấu mà quầy tự áp dụng mà thu ngân không phải quyết định. Mã vạch và nhãn kệ in ra từ cùng bộ dữ liệu đó.",
+    "pos-stock": "Nhập hàng, chuyển giữa các địa điểm của riêng bạn, soạn hàng theo thứ tự vị trí, kiểm kê thực tế và ghi nhận chênh lệch. Mỗi địa điểm biết mình đang có gì và thiếu gì.",
+    "pos-loyalty": "Ai mua gì và liên hệ ra sao, tài khoản sỉ hay thành viên trả giá nào, và chương trình điểm đang nợ bao nhiêu. Phiếu giảm giá tự biết giá trị và phần đã sử dụng.",
+    "pos-compliance": "Các lần nộp MyInvois của LHDN cùng trạng thái, và doanh thu trong ngày đẩy sang hệ thống kế toán. Mỗi giao dịch ghi đúng mức thuế nó thực sự chịu, nên hóa đơn in lại sang năm vẫn đúng số đã thu.",
+    "pos-workforce": "Lịch làm, chấm công và chi phí mỗi ca. Đi muộn được tính so với lịch ngay tại thời điểm chấm công — thời điểm duy nhất có thể tính đúng.",
+    "pos-sync": "Bạn không phải bắt đầu từ danh mục trống. Nhập từ bảng tính, hoặc kết nối hệ thống bán hàng bạn đang dùng — Square, Clover, Loyverse hay AutoCount — và kéo sản phẩm cùng doanh số sang.",
   },
   ar: {
     "easydo-main": "منصة شاملة لإدارة الأعمال مدعومة بالذكاء الاصطناعي تجمع بين إدارة علاقات العملاء (CRM) والتواصل والتسويق ودعم العملاء في نظام واحد — مصممة لمساعدة الشركات على إدارة رحلة العميل بالكامل بسهولة.",
@@ -618,6 +687,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "جدول الطالب ودرجاته وواجباته (مع التسليم) وحضوره وملاحظات الرعاية الخاصة به.",
     "school-staff": "دليل المعلّمين وطلبات الإجازة مع الموافقة وسجلات التطوير المهني، مع تحليل عبء العمل بالذكاء الاصطناعي.",
     "school-intelligence": "نظرة شاملة للمدرسة بعشرة مؤشرات تشمل اتجاهات الحضور والدرجات والمالية والتسجيل مع إحاطة للمدير بالذكاء الاصطناعي.",
+    "pos-main": "تجزئة متعددة الفروع بتسجيل دخول واحد — الكاشير والمستودع والإقرارات الضريبية في نظام واحد، وما يستطيع كل شخص فتحه يحدده دوره.",
+    "pos-till": "سجّل عملية بيع على أي نقطة بيع، وعلّق فاتورة ثم استرجعها من نقطة أخرى، واقبل المرتجعات، وراجع كل عملية بيع وما حدث لها. تفتح النقطة برصيد معدود وتغلق بدرج معدود.",
+    "pos-analyst": "اسأل من الشريط العلوي في أي شاشة، كتابةً أو صوتًا. الأسئلة الجاهزة والمفتوحة يجيب عنها استعلام حقيقي على بياناتك، فكل رقم محسوب وليس مكتوبًا من نموذج لغوي.",
+    "pos-catalogue": "الأسماء وأكواد الأصناف والأسعار، إلى جانب قواعد الباقات والخصومات التي تطبقها نقطة البيع تلقائيًا دون قرار من الكاشير. الباركود وملصقات الرفوف تُطبع من نفس السجلات.",
+    "pos-stock": "اطلب البضاعة، وانقلها بين مواقعك، وجهّزها بترتيب الرفوف، واحسب الموجود فعليًا وسجّل الفرق. كل موقع يعرف ما فيه وما ينقصه.",
+    "pos-loyalty": "من اشترى ماذا وكيف تصل إليه، وما يدفعه حساب الجملة أو العضوية، وما يدين به برنامج النقاط. القسائم تعرف قيمتها وما تم استبداله.",
+    "pos-compliance": "إرساليات MyInvois لدى LHDN وحالتها، وترحيل متحصلات اليوم إلى نظام المحاسبة. كل عملية بيع تسجل الضريبة التي تحملتها فعليًا، فالفاتورة المعاد طباعتها لاحقًا تظل تذكر ما تم تحصيله.",
+    "pos-workforce": "جداول المناوبات وتسجيل الحضور وتكلفة كل وردية. يُحسب التأخير مقابل الجدول لحظة تسجيل الحضور، وهي اللحظة الوحيدة التي يمكن ضبطه فيها.",
+    "pos-sync": "لست مضطرًا للبدء من كتالوج فارغ. استورده من جدول بيانات، أو اربط نظام نقاط البيع الذي تستخدمه بالفعل — Square أو Clover أو Loyverse أو AutoCount — واسحب المنتجات والمبيعات.",
   },
   th: {
     "easydo-main": "แพลตฟอร์มจัดการธุรกิจครบวงจรที่ขับเคลื่อนด้วย AI ซึ่งรวม CRM การสื่อสาร การตลาด และการสนับสนุนลูกค้าไว้ในระบบเดียว — ออกแบบมาเพื่อช่วยให้ธุรกิจจัดการเส้นทางของลูกค้าทั้งหมดได้อย่างง่ายดาย",
@@ -693,6 +771,15 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "school-portal": "ตารางเรียน เกรด การบ้าน (พร้อมส่งงาน) การเข้าเรียน และบันทึกการดูแลของนักเรียนเอง",
     "school-staff": "ไดเรกทอรีครู คำขอลาพร้อมการอนุมัติ และบันทึก CPD พร้อมวิเคราะห์ภาระงานด้วย AI",
     "school-intelligence": "ภาพรวมทั้งโรงเรียนสิบตัวชี้วัด ครอบคลุมแนวโน้มการเข้าเรียน เกรด การเงิน และการรับสมัคร พร้อมสรุปสำหรับผู้อำนวยการด้วย AI",
+    "pos-main": "ร้านค้าปลีกย่อยหลายสาขาด้วยการเข้าระบบครั้งเดียว — หน้าเคาน์เตอร์ คลังสินค้า และการยื่นภาษี รวมเป็นระบบเดียว โดยสิทธิ์การเข้าถึงกำหนดตามบทบาท",
+    "pos-till": "ขายที่เครื่องใดก็ได้ พักบิลไว้แล้วเรียกกลับที่อีกเครื่องหนึ่ง รับคืนสินค้า และย้อนดูทุกการขายพร้อมสิ่งที่เกิดขึ้นกับมัน เครื่องเปิดด้วยเงินทอนที่นับแล้ว และปิดด้วยลิ้นชักที่นับแล้ว",
+    "pos-analyst": "ถามจากแถบด้านบนของทุกหน้าจอ พิมพ์หรือพูดก็ได้ ทั้งคำถามที่เตรียมไว้และคำถามเปิด ตอบด้วยการคว่านจริงบนข้อมูลของคุณเอง ทุกตัวเลขจึงถูกคำนวณ ไม่ใช่สิ่งที่โมเดลภาษาเขียนขึ้นเอง",
+    "pos-catalogue": "ชื่อ SKU และราคา รวมถึงกฎชุดสินค้าและส่วนลดที่เครื่องใช้เองโดยพนักงานไม่ต้องตัดสินใจ บาร์โค้ดและป้ายชั้นวางพิมพ์จากข้อมูลชุดเดียวกัน",
+    "pos-stock": "สั่งสินค้าเข้า โอนระหว่างสาขาของคุณเอง หยิบตามลำดับช่องเก็บ นับของที่มีจริงและบันทึกส่วนต่าง ทุกสาขารู้ว่ามีอะไรอยู่และขาดอะไร",
+    "pos-loyalty": "ใครซื้ออะไรและติดต่ออย่างไร บัญชีค้าส่งหรือสมาชิกจ่ายราคาใด และโปรแกรมคะแนนค้างอยู่เท่าไร คูปองรู้มูลค่าของตัวเองและส่วนที่ใช้ไปแล้ว",
+    "pos-compliance": "การยื่น MyInvois ต่อ LHDN พร้อมสถานะ และยอดขายประจำวันที่ส่งเข้าระบบบัญชี การขายแต่ละครั้งบันทึกภาษีที่เก็บจริง ใบกำกับภาษีที่พิมพ์ซ้ำในปีถัดไปจึงยังตรงกับที่เรียกเก็บจริง",
+    "pos-workforce": "ตารางกะ การลงเวลา และต้นทุนของแต่ละกะ การมาสายคำนวณเทียบกับตารางณ วินาทีที่พนักงานลงเวลา ซึ่งเป็นจังหวะเดียวที่คำนวณได้ถูกต้อง",
+    "pos-sync": "ไม่ต้องเริ่มจากแคตตาล็อกเปล่า นำเข้าจากสเปรดชีต หรือเชื่อมต่อระบบขายหน้าร้านที่ใช้อยู่ — Square, Clover, Loyverse หรือ AutoCount — แล้วดึงสินค้าและยอดขายเข้ามา",
   },
 };
 
@@ -705,6 +792,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     easyCommerceTagline: string;
     easyHalalTagline: string;
     easySchoolTagline: string;
+    easyPosTagline: string;
     mainPlatform: string;
     opensInNewTab: string;
   };
@@ -713,84 +801,91 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     en: {
       title: "Our",
       titleHighlight: "Systems",
-      subtitle: "Five complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+ and M-EasySchool AI+ — broken into 73 integrated systems to run and grow your business. Click any system to open it.",
-      easyDoTagline: "Business operations, CRM, marketing & customer support",
+      subtitle: "Six complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ and M-EasyPOS AI+ — broken into 82 integrated systems to run and grow your business. Click any system to open it.",
+      easyDoTagline: "CRM, omnichannel inbox, marketing automation, customer support, Asha AI sales agent & booking",
       easyToolsTagline: "AI content, social, mail, ads, SEO, commerce, sales, PR, audiobooks & more",
       easyCommerceTagline: "Full AI e-commerce ops — inventory, orders, webstore, POS, channels, payments & shipping",
       easyHalalTagline: "Halal discovery, faith, finance, commerce, community, education & governance",
       easySchoolTagline: "Admissions, attendance, teaching, grades, finance, communication & school intelligence",
+      easyPosTagline: "Point of sale, stock, warehouse, loyalty, workforce & LHDN e-Invoice for multi-branch retail",
       mainPlatform: "Main Platform",
       opensInNewTab: "(opens in a new tab)",
     },
     bm: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Lima ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+ dan M-EasySchool AI+ — dipecahkan kepada 73 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
-      easyDoTagline: "Operasi perniagaan, CRM, pemasaran & sokongan pelanggan",
+      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dipecahkan kepada 82 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
+      easyDoTagline: "CRM, peti masuk omnisaluran, automasi pemasaran, sokongan pelanggan, ejen jualan AI Asha & tempahan",
       easyToolsTagline: "Kandungan AI, sosial, mel, iklan, SEO, e-dagang, jualan, PR, audiobook & lagi",
       easyCommerceTagline: "Operasi e-dagang AI penuh — inventori, pesanan, kedai web, POS, saluran, pembayaran & penghantaran",
       easyHalalTagline: "Penemuan halal, keimanan, kewangan, e-dagang, komuniti, pendidikan & tadbir urus",
       easySchoolTagline: "Kemasukan, kehadiran, pengajaran, gred, kewangan, komunikasi & perisikan sekolah",
+      easyPosTagline: "Kaunter jualan, stok, gudang, kesetiaan, tenaga kerja & e-Invois LHDN untuk peruncitan berbilang cawangan",
       mainPlatform: "Platform Utama",
       opensInNewTab: "(buka dalam tab baharu)",
     },
     cn: {
       title: "我们的",
       titleHighlight: "系统",
-      subtitle: "五个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+ 与 M-EasySchool AI+——拆分为 73 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
-      easyDoTagline: "业务运营、CRM、营销与客户支持",
+      subtitle: "六个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+、M-EasySchool AI+ 与 M-EasyPOS AI+——拆分为 82 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
+      easyDoTagline: "CRM、全渠道收件箱、营销自动化、客户支持、Asha AI 销售代理与预约",
       easyToolsTagline: "AI 内容、社交、邮件、广告、SEO、电商、销售、公关、有声书等",
       easyCommerceTagline: "全套 AI 电商运营——库存、订单、网店、POS、渠道、支付与物流",
       easyHalalTagline: "清真发现、信仰、金融、电商、社区、教育与治理",
       easySchoolTagline: "招生、考勤、教学、成绩、财务、沟通与校务智能",
+      easyPosTagline: "收银、库存、仓储、会员、排班与 LHDN 电子发票，专为多门店零售而建",
       mainPlatform: "主平台",
       opensInNewTab: "（在新标签页中打开）",
     },
     id: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Lima ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+ dan M-EasySchool AI+ — dibagi menjadi 73 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
-      easyDoTagline: "Operasi bisnis, CRM, pemasaran & dukungan pelanggan",
+      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dibagi menjadi 82 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
+      easyDoTagline: "CRM, kotak masuk omnichannel, otomasi pemasaran, dukungan pelanggan, agen penjualan AI Asha & pemesanan",
       easyToolsTagline: "Konten AI, sosial, email, iklan, SEO, e-commerce, penjualan, PR, audiobook & lainnya",
       easyCommerceTagline: "Operasi e-commerce AI lengkap — inventaris, pesanan, webstore, POS, saluran, pembayaran & pengiriman",
       easyHalalTagline: "Penemuan halal, keimanan, keuangan, e-commerce, komunitas, pendidikan & tata kelola",
       easySchoolTagline: "Penerimaan, kehadiran, pengajaran, nilai, keuangan, komunikasi & intelijen sekolah",
+      easyPosTagline: "Kasir, stok, gudang, loyalitas, tenaga kerja & e-Invoice LHDN untuk ritel multi-cabang",
       mainPlatform: "Platform Utama",
       opensInNewTab: "(buka di tab baru)",
     },
     vn: {
       title: "Hệ Thống",
       titleHighlight: "Của Chúng Tôi",
-      subtitle: "Năm hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+ và M-EasySchool AI+ — được chia thành 73 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
-      easyDoTagline: "Vận hành kinh doanh, CRM, tiếp thị & hỗ trợ khách hàng",
+      subtitle: "Sáu hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ và M-EasyPOS AI+ — được chia thành 82 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
+      easyDoTagline: "CRM, hộp thư đa kênh, tự động hóa tiếp thị, hỗ trợ khách hàng, trợ lý bán hàng AI Asha & đặt lịch",
       easyToolsTagline: "Nội dung AI, mạng xã hội, email, quảng cáo, SEO, thương mại, bán hàng, PR, sách nói & hơn nữa",
       easyCommerceTagline: "Vận hành thương mại điện tử AI toàn diện — kho hàng, đơn hàng, cửa hàng trực tuyến, POS, kênh bán, thanh toán & vận chuyển",
       easyHalalTagline: "Khám phá halal, đức tin, tài chính, thương mại, cộng đồng, giáo dục & quản trị",
       easySchoolTagline: "Tuyển sinh, điểm danh, giảng dạy, điểm số, tài chính, giao tiếp & trí tuệ nhà trường",
+      easyPosTagline: "Bán hàng tại quầy, tồn kho, kho vận, khách hàng thân thiết, nhân sự & hóa đơn điện tử LHDN cho bán lẻ đa chi nhánh",
       mainPlatform: "Nền tảng chính",
       opensInNewTab: "(mở trong tab mới)",
     },
     ar: {
       title: "أنظمتنا",
       titleHighlight: "المتكاملة",
-      subtitle: "خمس منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ — مقسمة إلى 73 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
-      easyDoTagline: "عمليات الأعمال وإدارة العملاء والتسويق ودعم العملاء",
+      subtitle: "ست منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ و M-EasyPOS AI+ — مقسمة إلى 82 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
+      easyDoTagline: "إدارة العلاقات وصندوق موحّد لكل القنوات وأتمتة التسويق ودعم العملاء ووكيل المبيعات Asha والحجوزات",
       easyToolsTagline: "محتوى الذكاء الاصطناعي والتواصل الاجتماعي والبريد والإعلانات وتحسين محركات البحث والتجارة والمبيعات والعلاقات العامة والكتب الصوتية والمزيد",
       easyCommerceTagline: "عمليات تجارة إلكترونية كاملة بالذكاء الاصطناعي — المخزون والطلبات والمتجر الإلكتروني ونقاط البيع والقنوات والمدفوعات والشحن",
       easyHalalTagline: "اكتشاف الحلال والإيمان والتمويل والتجارة والمجتمع والتعليم والحوكمة",
       easySchoolTagline: "القبول والحضور والتدريس والدرجات والمالية والتواصل وذكاء المدرسة",
+      easyPosTagline: "نقاط البيع والمخزون والمستودعات والولاء والموظفين وفواتير LHDN الإلكترونية للتجزئة متعددة الفروع",
       mainPlatform: "المنصة الرئيسية",
       opensInNewTab: "(يُفتح في علامة تبويب جديدة)",
     },
     th: {
       title: "ระบบ",
       titleHighlight: "ของเรา",
-      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์ห้าระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+ และ M-EasySchool AI+ — แบ่งออกเป็น 73 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
-      easyDoTagline: "การดำเนินธุรกิจ, CRM, การตลาด และการสนับสนุนลูกค้า",
+      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์หกระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ และ M-EasyPOS AI+ — แบ่งออกเป็น 82 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
+      easyDoTagline: "CRM, กล่องข้อความรวมทุกช่องทาง, ระบบการตลาดอัตโนมัติ, การสนับสนุนลูกค้า, ตัวแทนขาย AI Asha และการจอง",
       easyToolsTagline: "เนื้อหา AI, โซเชียล, อีเมล, โฆษณา, SEO, อีคอมเมิร์ซ, การขาย, PR, หนังสือเสียง และอื่นๆ",
       easyCommerceTagline: "การดำเนินงานอีคอมเมิร์ซด้วย AI ครบวงจร — สินค้าคงคลัง คำสั่งซื้อ เว็บสโตร์ POS ช่องทาง การชำระเงิน และการจัดส่ง",
       easyHalalTagline: "การค้นหาฮาลาล ศรัทธา การเงิน อีคอมเมิร์ซ ชุมชน การศึกษา และธรรมาภิบาล",
       easySchoolTagline: "การรับสมัคร การเข้าเรียน การสอน เกรด การเงิน การสื่อสาร และข้อมูลเชิงลึกของโรงเรียน",
+      easyPosTagline: "ขายหน้าร้าน สต็อก คลังสินค้า ลูกค้าสมาชิก กำลังคน และ e-Invoice ของ LHDN สำหรับร้านค้าหลายสาขา",
       mainPlatform: "แพลตฟอร์มหลัก",
       opensInNewTab: "(เปิดในแท็บใหม่)",
     },
