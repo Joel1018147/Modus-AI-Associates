@@ -45,7 +45,7 @@ Building the world's first AI-native business and lifestyle operating system.
 ## Products — AI+ Super Apps
 
 MODUS AI Associates operates a suite of AI-native enterprise Super Apps,
-comprising 84 integrated AI subsystems.
+comprising 85 integrated AI subsystems.
 
 - M-EasyDo AI+ Super App — CRM, omnichannel communication, booking, email
   marketing, marketing automation, customer support, the Asha AI sales agent,
@@ -68,6 +68,11 @@ comprising 84 integrated AI subsystems.
   stock and warehouse, loyalty, workforce, LHDN MyInvois e-Invoice and sync
   with Square, Clover, Loyverse and AutoCount.
   https://m-easypos-ai-production.up.railway.app/
+- ESG AI+ Super App — ESG self-assessment and evidence for Malaysian SMEs:
+  a structured Environmental, Social and Governance questionnaire scored by an
+  engine rather than a model, carbon records, an evidence library and a
+  reporting-readiness view.
+  https://esgsuperappai-production.up.railway.app/
 
 ## Target markets
 

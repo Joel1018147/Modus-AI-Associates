@@ -1,5 +1,5 @@
 import type React from "react";
-  import { Building2, Wrench, ShoppingBag, Moon, GraduationCap, Store } from "lucide-react";
+  import { Building2, Wrench, ShoppingBag, Moon, GraduationCap, Store, Leaf } from "lucide-react";
   import type { Lang } from "@/contexts/LanguageContext";
 
   export type SystemId =
@@ -13,11 +13,12 @@ import type React from "react";
   | "commerce-channelsync" | "commerce-payments" | "commerce-carriers" | "commerce-pos" | "commerce-mobile"
   | "commerce-compliance"
   | "halal-main" | "halal-auth" | "halal-discover" | "halal-faith" | "halal-finance" | "halal-asha" | "halal-intelligence" | "halal-learn" | "halal-community" | "halal-commerce" | "halal-merchant" | "halal-studio" | "halal-analytics" | "halal-compliance" | "halal-operations" | "halal-gov" | "halal-knowledge" | "halal-vector" | "school-main" | "school-students" | "school-classes" | "school-attendance" | "school-classroom" | "school-assessment" | "school-grades" | "school-academic" | "school-tutor" | "school-pathways" | "school-timetable" | "school-enrol" | "school-finance" | "school-inbox" | "school-events" | "school-parent" | "school-portal" | "school-staff" | "school-intelligence"
+  | "esg-main"
   | "pos-main" | "pos-till" | "pos-analyst" | "pos-catalogue" | "pos-stock" | "pos-loyalty" | "pos-compliance" | "pos-workforce" | "pos-sync";
 export type SystemLink = { id: SystemId; name: string; url: string; isMain?: boolean };
 export type SystemGroup = {
   brand: string;
-  taglineKey: "easyDoTagline" | "easyToolsTagline" | "easyCommerceTagline" | "easyHalalTagline" | "easySchoolTagline" | "easyPosTagline";
+  taglineKey: "easyDoTagline" | "easyToolsTagline" | "easyCommerceTagline" | "easyHalalTagline" | "easySchoolTagline" | "easyPosTagline" | "esgTagline";
   icon: React.ComponentType<{ className?: string }>;
   styles: { iconWrap: string; icon: string; badge: string; arrow: string; card: string };
   systems: SystemLink[];
@@ -181,7 +182,7 @@ export const systemGroups: SystemGroup[] = [
       card: "hover:border-rose-500/40 hover:shadow-[0_0_30px_rgba(190,24,93,0.14)]",
     },
     systems: [
-      { id: "pos-main", name: "M-EasyPOS AI+ Super App", isMain: true, url: "https://m-easypos-ai-production.up.railway.app/#subsystems" },
+      { id: "pos-main", name: "M-EasyPOS AI+ Super App", isMain: true, url: "https://m-easypos-ai-production.up.railway.app/#ecosystem" },
       { id: "pos-till", name: "M-EasyTill AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/till" },
       { id: "pos-analyst", name: "M-EasyAnalyst AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/analyst" },
       { id: "pos-catalogue", name: "M-EasyCatalogue AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/catalogue" },
@@ -190,6 +191,21 @@ export const systemGroups: SystemGroup[] = [
       { id: "pos-compliance", name: "M-EasyCompliance AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/compliance" },
       { id: "pos-workforce", name: "M-EasyWorkforce AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/workforce" },
       { id: "pos-sync", name: "M-EasySync AI+", url: "https://m-easypos-ai-production.up.railway.app/modules/sync" },
+    ],
+  },
+  {
+    brand: "ESG AI+ Super App",
+    taglineKey: "esgTagline",
+    icon: Leaf,
+    styles: {
+      iconWrap: "bg-lime-500/10 border-lime-500/30",
+      icon: "text-lime-400",
+      badge: "bg-lime-500/15 text-lime-400 border-lime-500/30",
+      arrow: "group-hover:text-lime-400",
+      card: "hover:border-lime-500/40 hover:shadow-[0_0_30px_rgba(132,204,22,0.14)]",
+    },
+    systems: [
+      { id: "esg-main", name: "ESG AI+ Super App", isMain: true, url: "https://esgsuperappai-production.up.railway.app/" },
     ],
   },
 ];
@@ -280,6 +296,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "LHDN MyInvois submissions and their status, and the day’s takings pushed into the accounting system. A sale records the tax it actually carried, so an invoice reprinted next year still says what was charged.",
     "pos-workforce": "Rosters, clock-ins and what each shift costs. Lateness is computed against the schedule at the moment somebody clocks in, which is the only moment it can be got right.",
     "pos-sync": "You do not have to start from an empty catalogue. Bring one in from a spreadsheet, or connect the till system you already run — Square, Clover, Loyverse or AutoCount — and pull the products and sales across.",
+    "esg-main": "A self-assessment and evidence platform for Malaysian SMEs — a structured questionnaire across Environmental, Social and Governance, scored by an engine rather than by a model, with carbon records, an evidence library and a readiness view that says plainly what a report cannot yet be assembled from.",
   },
   bm: {
     "easydo-main": "Platform pengurusan perniagaan berkuasa AI serba lengkap yang menggabungkan CRM, komunikasi, pemasaran dan sokongan pelanggan dalam satu sistem — direka untuk membantu perniagaan menguruskan keseluruhan perjalanan pelanggan dengan mudah.",
@@ -366,6 +383,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "Penghantaran MyInvois LHDN dan statusnya, serta kutipan harian ditolak ke dalam sistem perakaunan. Setiap jualan merekod cukai yang sebenarnya dikenakan, jadi invois yang dicetak semula tahun depan masih menyatakan apa yang dicaj.",
     "pos-workforce": "Jadual syif, rekod masuk dan kos setiap syif. Kelewatan dikira berbanding jadual pada saat seseorang merekod masuk, satu-satunya saat ia boleh dikira dengan betul.",
     "pos-sync": "Anda tidak perlu bermula daripada katalog kosong. Import daripada hamparan, atau sambungkan sistem kaunter yang anda guna sekarang — Square, Clover, Loyverse atau AutoCount — dan tarik masuk produk serta jualan.",
+    "esg-main": "Platform penilaian kendiri dan bukti untuk PKS Malaysia — soal selidik berstruktur merentasi Alam Sekitar, Sosial dan Tadbir Urus, dimarkahkan oleh enjin dan bukan oleh model, dengan rekod karbon, perpustakaan bukti dan paparan kesediaan yang menyatakan dengan jelas apa yang belum boleh dijadikan laporan.",
   },
   cn: {
     "easydo-main": "一体化的 AI 驱动业务管理平台，将 CRM、沟通、营销和客户支持整合到单一系统中——旨在帮助企业轻松管理整个客户旅程。",
@@ -452,6 +470,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "LHDN MyInvois 报送及其状态，以及当日收入推送至会计系统。每笔销售记录当时实际承担的税额，因此明年重打的发票仍然是当时收取的金额。",
     "pos-workforce": "排班、打卡与每个班次的成本。迟到在打卡那一刻对照排班计算——那是唯一能算对的时刻。",
     "pos-sync": "不必从空白商品库开始。从表格导入，或连接您现有的收银系统——Square、Clover、Loyverse 或 AutoCount——将商品与销售记录一并拉过来。",
+    "esg-main": "面向马来西亚中小企业的自评与证据平台——涵盖环境、社会与治理的结构化问卷，由评分引擎而非模型评分，并包含碳记录、证据库，以及一个直言哪些内容尚不足以成报的就绪度视图。",
   },
   id: {
     "easydo-main": "Platform manajemen bisnis bertenaga AI serba lengkap yang menggabungkan CRM, komunikasi, pemasaran, dan dukungan pelanggan dalam satu sistem — dirancang untuk membantu bisnis mengelola seluruh perjalanan pelanggan dengan mudah.",
@@ -538,6 +557,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "Pengiriman MyInvois LHDN beserta statusnya, dan pendapatan harian yang didorong ke sistem akuntansi. Setiap penjualan mencatat pajak yang benar-benar dikenakan, sehingga faktur yang dicetak ulang tahun depan tetap menyebut jumlah yang ditagihkan.",
     "pos-workforce": "Jadwal, absensi masuk, dan biaya setiap shift. Keterlambatan dihitung terhadap jadwal pada saat seseorang absen masuk — satu-satunya saat hal itu bisa dihitung dengan benar.",
     "pos-sync": "Anda tidak perlu mulai dari katalog kosong. Impor dari spreadsheet, atau hubungkan sistem kasir yang sudah Anda pakai — Square, Clover, Loyverse, atau AutoCount — lalu tarik produk dan penjualannya.",
+    "esg-main": "Platform penilaian mandiri dan bukti untuk UKM Malaysia — kuesioner terstruktur mencakup Lingkungan, Sosial, dan Tata Kelola, dinilai oleh mesin skor dan bukan oleh model, dengan catatan karbon, pustaka bukti, dan tampilan kesiapan yang menyatakan terus terang apa yang belum bisa disusun menjadi laporan.",
   },
   vn: {
     "easydo-main": "Nền tảng quản lý doanh nghiệp tích hợp toàn diện được hỗ trợ bởi AI, kết hợp CRM, giao tiếp, tiếp thị và hỗ trợ khách hàng trong một hệ thống duy nhất — được thiết kế để giúp doanh nghiệp quản lý toàn bộ hành trình khách hàng một cách dễ dàng.",
@@ -624,6 +644,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "Các lần nộp MyInvois của LHDN cùng trạng thái, và doanh thu trong ngày đẩy sang hệ thống kế toán. Mỗi giao dịch ghi đúng mức thuế nó thực sự chịu, nên hóa đơn in lại sang năm vẫn đúng số đã thu.",
     "pos-workforce": "Lịch làm, chấm công và chi phí mỗi ca. Đi muộn được tính so với lịch ngay tại thời điểm chấm công — thời điểm duy nhất có thể tính đúng.",
     "pos-sync": "Bạn không phải bắt đầu từ danh mục trống. Nhập từ bảng tính, hoặc kết nối hệ thống bán hàng bạn đang dùng — Square, Clover, Loyverse hay AutoCount — và kéo sản phẩm cùng doanh số sang.",
+    "esg-main": "Nền tảng tự đánh giá và lưu bằng chứng cho doanh nghiệp vừa và nhỏ Malaysia — bộ câu hỏi có cấu trúc về Môi trường, Xã hội và Quản trị, do một cỗ máy chấm điểm chứ không phải mô hình, kèm hồ sơ carbon, thư viện bằng chứng và một trang sẵn sàng nói thẳng những gì chưa thể dựng thành báo cáo.",
   },
   ar: {
     "easydo-main": "منصة شاملة لإدارة الأعمال مدعومة بالذكاء الاصطناعي تجمع بين إدارة علاقات العملاء (CRM) والتواصل والتسويق ودعم العملاء في نظام واحد — مصممة لمساعدة الشركات على إدارة رحلة العميل بالكامل بسهولة.",
@@ -710,6 +731,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "إرساليات MyInvois لدى LHDN وحالتها، وترحيل متحصلات اليوم إلى نظام المحاسبة. كل عملية بيع تسجل الضريبة التي تحملتها فعليًا، فالفاتورة المعاد طباعتها لاحقًا تظل تذكر ما تم تحصيله.",
     "pos-workforce": "جداول المناوبات وتسجيل الحضور وتكلفة كل وردية. يُحسب التأخير مقابل الجدول لحظة تسجيل الحضور، وهي اللحظة الوحيدة التي يمكن ضبطه فيها.",
     "pos-sync": "لست مضطرًا للبدء من كتالوج فارغ. استورده من جدول بيانات، أو اربط نظام نقاط البيع الذي تستخدمه بالفعل — Square أو Clover أو Loyverse أو AutoCount — واسحب المنتجات والمبيعات.",
+    "esg-main": "منصة تقييم ذاتي وأدلة للمنشآت الصغيرة والمتوسطة في ماليزيا — استبيان منظم يغطي البيئة والمجتمع والحوكمة، يُقيّم بمحرك حساب لا بنموذج لغوي، مع سجلات الكربون ومكتبة أدلة وعرض جاهزية يقول بوضوح ما لا يمكن بعد إعداد تقرير منه.",
   },
   th: {
     "easydo-main": "แพลตฟอร์มจัดการธุรกิจครบวงจรที่ขับเคลื่อนด้วย AI ซึ่งรวม CRM การสื่อสาร การตลาด และการสนับสนุนลูกค้าไว้ในระบบเดียว — ออกแบบมาเพื่อช่วยให้ธุรกิจจัดการเส้นทางของลูกค้าทั้งหมดได้อย่างง่ายดาย",
@@ -796,6 +818,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "pos-compliance": "การยื่น MyInvois ต่อ LHDN พร้อมสถานะ และยอดขายประจำวันที่ส่งเข้าระบบบัญชี การขายแต่ละครั้งบันทึกภาษีที่เก็บจริง ใบกำกับภาษีที่พิมพ์ซ้ำในปีถัดไปจึงยังตรงกับที่เรียกเก็บจริง",
     "pos-workforce": "ตารางกะ การลงเวลา และต้นทุนของแต่ละกะ การมาสายคำนวณเทียบกับตารางณ วินาทีที่พนักงานลงเวลา ซึ่งเป็นจังหวะเดียวที่คำนวณได้ถูกต้อง",
     "pos-sync": "ไม่ต้องเริ่มจากแคตตาล็อกเปล่า นำเข้าจากสเปรดชีต หรือเชื่อมต่อระบบขายหน้าร้านที่ใช้อยู่ — Square, Clover, Loyverse หรือ AutoCount — แล้วดึงสินค้าและยอดขายเข้ามา",
+    "esg-main": "แพลตฟอร์มประเมินตนเองและจัดเก็บหลักฐานสำหรับ SME มาเลเซีย — แบบสอบถามที่มีโครงสร้าง ครอบคลุมด้านสิ่งแวดล้อม สังคม และธรรมาภิบาล ให้คะแนนโดยเอนจินคำนวณ ไม่ใช่โมเดลภาษา พร้อมบันทึกคาร์บอน คลังหลักฐาน และมุมมองความพร้อมที่บอกตรงๆ ว่าสิ่งใดยังประกอบเป็นรายงานไม่ได้",
   },
 };
 
@@ -809,6 +832,7 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     easyHalalTagline: string;
     easySchoolTagline: string;
     easyPosTagline: string;
+    esgTagline: string;
     mainPlatform: string;
     opensInNewTab: string;
   };
@@ -817,91 +841,98 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     en: {
       title: "Our",
       titleHighlight: "Systems",
-      subtitle: "Six complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ and M-EasyPOS AI+ — broken into 84 integrated systems to run and grow your business. Click any system to open it.",
+      subtitle: "Seven complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+, M-EasyPOS AI+ and the ESG Super App — broken into 85 integrated systems to run and grow your business. Click any system to open it.",
       easyDoTagline: "CRM, omnichannel inbox, marketing automation, support, Asha AI sales agent, booking, M-Ai & document intelligence",
       easyToolsTagline: "AI content, social, mail, ads, SEO, commerce, sales, PR, audiobooks & more",
       easyCommerceTagline: "Full AI e-commerce ops — inventory, orders, webstore, POS, channels, payments & shipping",
       easyHalalTagline: "Halal discovery, faith, finance, commerce, community, education & governance",
       easySchoolTagline: "Admissions, attendance, teaching, grades, finance, communication & school intelligence",
       easyPosTagline: "Point of sale, stock, warehouse, loyalty, workforce & LHDN e-Invoice for multi-branch retail",
+      esgTagline: "Malaysian SME ESG self-assessment, carbon records, evidence and reporting readiness",
       mainPlatform: "Main Platform",
       opensInNewTab: "(opens in a new tab)",
     },
     bm: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dipecahkan kepada 84 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
+      subtitle: "Tujuh ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+, M-EasyPOS AI+ dan ESG Super App — dipecahkan kepada 85 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
       easyDoTagline: "CRM, peti masuk omnisaluran, automasi pemasaran, sokongan, ejen jualan AI Asha, tempahan, M-Ai & kecerdasan dokumen",
       easyToolsTagline: "Kandungan AI, sosial, mel, iklan, SEO, e-dagang, jualan, PR, audiobook & lagi",
       easyCommerceTagline: "Operasi e-dagang AI penuh — inventori, pesanan, kedai web, POS, saluran, pembayaran & penghantaran",
       easyHalalTagline: "Penemuan halal, keimanan, kewangan, e-dagang, komuniti, pendidikan & tadbir urus",
       easySchoolTagline: "Kemasukan, kehadiran, pengajaran, gred, kewangan, komunikasi & perisikan sekolah",
       easyPosTagline: "Kaunter jualan, stok, gudang, kesetiaan, tenaga kerja & e-Invois LHDN untuk peruncitan berbilang cawangan",
+      esgTagline: "Penilaian kendiri ESG PKS Malaysia, rekod karbon, bukti dan kesediaan pelaporan",
       mainPlatform: "Platform Utama",
       opensInNewTab: "(buka dalam tab baharu)",
     },
     cn: {
       title: "我们的",
       titleHighlight: "系统",
-      subtitle: "六个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+、M-EasySchool AI+ 与 M-EasyPOS AI+——拆分为 84 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
+      subtitle: "七个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+、M-EasySchool AI+、M-EasyPOS AI+ 与 ESG Super App——拆分为 85 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
       easyDoTagline: "CRM、全渠道收件箱、营销自动化、客户支持、Asha AI 销售代理、预约、M-Ai 与文档智能",
       easyToolsTagline: "AI 内容、社交、邮件、广告、SEO、电商、销售、公关、有声书等",
       easyCommerceTagline: "全套 AI 电商运营——库存、订单、网店、POS、渠道、支付与物流",
       easyHalalTagline: "清真发现、信仰、金融、电商、社区、教育与治理",
       easySchoolTagline: "招生、考勤、教学、成绩、财务、沟通与校务智能",
       easyPosTagline: "收银、库存、仓储、会员、排班与 LHDN 电子发票，专为多门店零售而建",
+      esgTagline: "马来西亚中小企业 ESG 自评、碳记录、证据与报告就绪度",
       mainPlatform: "主平台",
       opensInNewTab: "（在新标签页中打开）",
     },
     id: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dibagi menjadi 84 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
+      subtitle: "Tujuh ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+, M-EasyPOS AI+ dan ESG Super App — dibagi menjadi 85 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
       easyDoTagline: "CRM, kotak masuk omnichannel, otomasi pemasaran, dukungan, agen penjualan AI Asha, pemesanan, M-Ai & inteligensi dokumen",
       easyToolsTagline: "Konten AI, sosial, email, iklan, SEO, e-commerce, penjualan, PR, audiobook & lainnya",
       easyCommerceTagline: "Operasi e-commerce AI lengkap — inventaris, pesanan, webstore, POS, saluran, pembayaran & pengiriman",
       easyHalalTagline: "Penemuan halal, keimanan, keuangan, e-commerce, komunitas, pendidikan & tata kelola",
       easySchoolTagline: "Penerimaan, kehadiran, pengajaran, nilai, keuangan, komunikasi & intelijen sekolah",
       easyPosTagline: "Kasir, stok, gudang, loyalitas, tenaga kerja & e-Invoice LHDN untuk ritel multi-cabang",
+      esgTagline: "Penilaian mandiri ESG UKM Malaysia, catatan karbon, bukti, dan kesiapan pelaporan",
       mainPlatform: "Platform Utama",
       opensInNewTab: "(buka di tab baru)",
     },
     vn: {
       title: "Hệ Thống",
       titleHighlight: "Của Chúng Tôi",
-      subtitle: "Sáu hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ và M-EasyPOS AI+ — được chia thành 84 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
+      subtitle: "Bảy hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+, M-EasyPOS AI+ và ESG Super App — được chia thành 85 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
       easyDoTagline: "CRM, hộp thư đa kênh, tự động hóa tiếp thị, hỗ trợ, trợ lý bán hàng AI Asha, đặt lịch, M-Ai & trí tuệ tài liệu",
       easyToolsTagline: "Nội dung AI, mạng xã hội, email, quảng cáo, SEO, thương mại, bán hàng, PR, sách nói & hơn nữa",
       easyCommerceTagline: "Vận hành thương mại điện tử AI toàn diện — kho hàng, đơn hàng, cửa hàng trực tuyến, POS, kênh bán, thanh toán & vận chuyển",
       easyHalalTagline: "Khám phá halal, đức tin, tài chính, thương mại, cộng đồng, giáo dục & quản trị",
       easySchoolTagline: "Tuyển sinh, điểm danh, giảng dạy, điểm số, tài chính, giao tiếp & trí tuệ nhà trường",
       easyPosTagline: "Bán hàng tại quầy, tồn kho, kho vận, khách hàng thân thiết, nhân sự & hóa đơn điện tử LHDN cho bán lẻ đa chi nhánh",
+      esgTagline: "Tự đánh giá ESG cho SME Malaysia, hồ sơ carbon, bằng chứng và mức sẵn sàng báo cáo",
       mainPlatform: "Nền tảng chính",
       opensInNewTab: "(mở trong tab mới)",
     },
     ar: {
       title: "أنظمتنا",
       titleHighlight: "المتكاملة",
-      subtitle: "ست منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ و M-EasyPOS AI+ — مقسمة إلى 84 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
+      subtitle: "سبع منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ و M-EasyPOS AI+ وESG Super App — مقسمة إلى 85 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
       easyDoTagline: "إدارة العلاقات وصندوق موحّد لكل القنوات وأتمتة التسويق والدعم ووكيل المبيعات Asha والحجوزات وM-Ai وذكاء المستندات",
       easyToolsTagline: "محتوى الذكاء الاصطناعي والتواصل الاجتماعي والبريد والإعلانات وتحسين محركات البحث والتجارة والمبيعات والعلاقات العامة والكتب الصوتية والمزيد",
       easyCommerceTagline: "عمليات تجارة إلكترونية كاملة بالذكاء الاصطناعي — المخزون والطلبات والمتجر الإلكتروني ونقاط البيع والقنوات والمدفوعات والشحن",
       easyHalalTagline: "اكتشاف الحلال والإيمان والتمويل والتجارة والمجتمع والتعليم والحوكمة",
       easySchoolTagline: "القبول والحضور والتدريس والدرجات والمالية والتواصل وذكاء المدرسة",
       easyPosTagline: "نقاط البيع والمخزون والمستودعات والولاء والموظفين وفواتير LHDN الإلكترونية للتجزئة متعددة الفروع",
+      esgTagline: "تقييم ESG ذاتي للمنشآت الماليزية وسجلات الكربون والأدلة وجاهزية التقارير",
       mainPlatform: "المنصة الرئيسية",
       opensInNewTab: "(يُفتح في علامة تبويب جديدة)",
     },
     th: {
       title: "ระบบ",
       titleHighlight: "ของเรา",
-      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์หกระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ และ M-EasyPOS AI+ — แบ่งออกเป็น 84 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
+      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์เจ็ดระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+, M-EasyPOS AI+ และ ESG Super App — แบ่งออกเป็น 85 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
       easyDoTagline: "CRM, กล่องข้อความรวมทุกช่องทาง, ระบบการตลาดอัตโนมัติ, การสนับสนุน, ตัวแทนขาย AI Asha, การจอง, M-Ai และการอ่านเอกสารด้วย AI",
       easyToolsTagline: "เนื้อหา AI, โซเชียล, อีเมล, โฆษณา, SEO, อีคอมเมิร์ซ, การขาย, PR, หนังสือเสียง และอื่นๆ",
       easyCommerceTagline: "การดำเนินงานอีคอมเมิร์ซด้วย AI ครบวงจร — สินค้าคงคลัง คำสั่งซื้อ เว็บสโตร์ POS ช่องทาง การชำระเงิน และการจัดส่ง",
       easyHalalTagline: "การค้นหาฮาลาล ศรัทธา การเงิน อีคอมเมิร์ซ ชุมชน การศึกษา และธรรมาภิบาล",
       easySchoolTagline: "การรับสมัคร การเข้าเรียน การสอน เกรด การเงิน การสื่อสาร และข้อมูลเชิงลึกของโรงเรียน",
       easyPosTagline: "ขายหน้าร้าน สต็อก คลังสินค้า ลูกค้าสมาชิก กำลังคน และ e-Invoice ของ LHDN สำหรับร้านค้าหลายสาขา",
+      esgTagline: "การประเมินตนเอง ESG สำหรับ SME มาเลเซีย บันทึกคาร์บอน หลักฐาน และความพร้อมรายงาน",
       mainPlatform: "แพลตฟอร์มหลัก",
       opensInNewTab: "(เปิดในแท็บใหม่)",
     },
