@@ -4,7 +4,7 @@ import type React from "react";
 
   export type SystemId =
   | "easydo-main" | "easydo-crm" | "easydo-email" | "easydo-automation" | "easydo-multichannel" | "easydo-support"
-  | "easydo-agent" | "easydo-booking"
+  | "easydo-agent" | "easydo-booking" | "easydo-mai" | "easydo-docintel"
   | "easytools-main" | "easytools-content" | "easytools-social" | "easytools-mail" | "easytools-ads"
   | "easytools-seo" | "easytools-commerce" | "easytools-sales" | "easytools-chat" | "easytools-gao" | "easytools-pr"
   | "easytools-audiobook"
@@ -44,6 +44,8 @@ export const systemGroups: SystemGroup[] = [
       { id: "easydo-support", name: "M-Easy Customer Support AI+ System", url: "https://m-easydo-ai-production.up.railway.app/modules/customer-support" },
       { id: "easydo-agent", name: "M-EasyAsha AI+ Sales Agent System", url: "https://m-easydo-ai-production.up.railway.app/modules/ai-agent" },
       { id: "easydo-booking", name: "M-Easy Booking AI+ System", url: "https://m-easydo-ai-production.up.railway.app/modules/booking" },
+      { id: "easydo-mai", name: "M-Ai Assistant", url: "https://m-easydo-ai-production.up.railway.app/modules/mai" },
+      { id: "easydo-docintel", name: "Document Intelligence", url: "https://m-easydo-ai-production.up.railway.app/modules/docintel" },
     ],
   },
   {
@@ -202,6 +204,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "Handle customer tickets, complaints, and enquiries in a structured helpdesk system. Track ticket status, assign to team members, reply via email, and measure customer satisfaction with CSAT scores.",
     "easydo-agent": "Meet Asha — your AI-powered sales agent that engages leads, answers questions, qualifies prospects, and moves deals forward around the clock. Automate your entire sales conversation flow without adding headcount.",
     "easydo-booking": "Let customers book appointments, consultations, and services online — anytime, anywhere. Manage your calendar, set availability, send reminders, and reduce no-shows with a smart AI-assisted booking system.",
+    "easydo-mai": "Ask about your own workspace in plain language — leads, deals, tasks, bookings, tickets and members. Every figure is computed by a query against your records, and anything that would change one comes back as a request you approve first.",
+    "easydo-docintel": "Upload a document or a spreadsheet and get its fields back as proposals you review — leads, contacts, bookings and membership records. Nothing is written to your records until you accept it, one record at a time.",
     "easytools-main": "All-in-one AI marketing platform with 40+ tools, AI chat, bulk generation, document manager and full dashboard — built for Malaysian businesses.",
     "easytools-content": "Generate high-quality blog posts, articles, landing page copy and long-form content in seconds using AI — in English and Bahasa Malaysia.",
     "easytools-social": "Create scroll-stopping social media captions, hashtags, content calendars and viral post ideas for Facebook, Instagram, TikTok and LinkedIn.",
@@ -286,6 +290,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "Uruskan tiket, aduan dan pertanyaan pelanggan dalam sistem meja bantuan yang tersusun. Jejaki status tiket, agihkan kepada ahli pasukan, balas melalui e-mel dan ukur kepuasan pelanggan dengan skor CSAT.",
     "easydo-agent": "Kenali Asha — ejen jualan berkuasa AI yang melibatkan petunjuk, menjawab soalan, melayakkan prospek dan meneruskan urusan jualan sepanjang masa. Automatikkan seluruh aliran perbualan jualan anda tanpa perlu menambah kakitangan.",
     "easydo-booking": "Benarkan pelanggan membuat temujanji, konsultasi dan perkhidmatan secara dalam talian — bila-bila masa, di mana sahaja. Uruskan kalendar anda, tetapkan ketersediaan, hantar peringatan dan kurangkan ketidakhadiran dengan sistem tempahan pintar berbantukan AI.",
+    "easydo-mai": "Tanya tentang ruang kerja anda sendiri dalam bahasa biasa — prospek, tawaran, tugasan, tempahan, tiket dan ahli. Setiap angka dikira oleh pertanyaan terhadap rekod anda, dan apa-apa yang akan mengubah rekod dikembalikan sebagai permintaan yang anda luluskan dahulu.",
+    "easydo-docintel": "Muat naik dokumen atau hamparan dan dapatkan medannya kembali sebagai cadangan untuk anda semak — prospek, kenalan, tempahan dan rekod keahlian. Tiada apa-apa ditulis ke dalam rekod anda sehingga anda menerimanya, satu rekod pada satu masa.",
     "easytools-main": "Platform pemasaran AI serba lengkap dengan 40+ alat, sembang AI, penjanaan pukal, pengurus dokumen dan papan pemuka penuh — dibina untuk perniagaan Malaysia.",
     "easytools-content": "Jana catatan blog, artikel, salinan halaman pendaratan dan kandungan bentuk panjang berkualiti tinggi dalam beberapa saat menggunakan AI — dalam bahasa Inggeris dan Bahasa Malaysia.",
     "easytools-social": "Cipta kapsyen media sosial yang menarik perhatian, hashtag, kalendar kandungan dan idea siaran viral untuk Facebook, Instagram, TikTok dan LinkedIn.",
@@ -370,6 +376,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "在结构化的服务台系统中处理客户工单、投诉和咨询。跟踪工单状态、分配给团队成员、通过电子邮件回复，并用 CSAT 评分衡量客户满意度。",
     "easydo-agent": "认识 Asha——您的 AI 驱动销售代理，全天候主动接触潜在客户、回答问题、筛选商机并推进交易。无需增加人手，即可自动化完成整个销售对话流程。",
     "easydo-booking": "让客户随时随地在线预约约会、咨询和服务。管理您的日历、设置可用时间、发送提醒，并通过智能 AI 辅助预约系统减少爽约情况。",
+    "easydo-mai": "用日常语言询问您自己的工作区——线索、商机、任务、预约、工单与会员。每一个数字都由针对您记录的查询算出，任何会改动记录的操作都会先交回给您审批。",
+    "easydo-docintel": "上传文档或表格，其中的字段会作为待审提案返回——线索、联系人、预约与会员记录。在您逐条接受之前，不会有任何内容写入您的记录。",
     "easytools-main": "一体化 AI 营销平台，拥有 40 多种工具、AI 聊天、批量生成、文档管理器和完整仪表板——专为马来西亚企业打造。",
     "easytools-content": "使用 AI 在几秒内生成高质量的博客文章、文章、落地页文案和长篇内容——支持英文和马来文。",
     "easytools-social": "为 Facebook、Instagram、TikTok 和 LinkedIn 创作吸睛的社交媒体文案、话题标签、内容日历和爆款帖子创意。",
@@ -454,6 +462,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "Tangani tiket, keluhan, dan pertanyaan pelanggan dalam sistem helpdesk yang terstruktur. Lacak status tiket, tetapkan ke anggota tim, balas melalui email, dan ukur kepuasan pelanggan dengan skor CSAT.",
     "easydo-agent": "Kenali Asha — agen penjualan bertenaga AI yang melibatkan prospek, menjawab pertanyaan, mengkualifikasi calon pelanggan, dan mendorong transaksi sepanjang waktu. Otomatiskan seluruh alur percakapan penjualan Anda tanpa perlu menambah staf.",
     "easydo-booking": "Biarkan pelanggan memesan janji, konsultasi, dan layanan secara online — kapan saja, di mana saja. Kelola kalender Anda, atur ketersediaan, kirim pengingat, dan kurangi ketidakhadiran dengan sistem pemesanan cerdas berbantuan AI.",
+    "easydo-mai": "Tanyakan tentang ruang kerja Anda sendiri dalam bahasa sehari-hari — prospek, peluang, tugas, pemesanan, tiket, dan anggota. Setiap angka dihitung oleh kueri atas catatan Anda, dan apa pun yang akan mengubah catatan dikembalikan sebagai permintaan yang Anda setujui lebih dulu.",
+    "easydo-docintel": "Unggah dokumen atau spreadsheet dan dapatkan bidangnya kembali sebagai usulan untuk Anda tinjau — prospek, kontak, pemesanan, dan catatan keanggotaan. Tidak ada yang ditulis ke catatan Anda sampai Anda menerimanya, satu catatan pada satu waktu.",
     "easytools-main": "Platform pemasaran AI serba lengkap dengan 40+ alat, chat AI, pembuatan massal, pengelola dokumen, dan dasbor lengkap — dibuat untuk bisnis Malaysia.",
     "easytools-content": "Hasilkan postingan blog, artikel, salinan halaman arahan, dan konten bentuk panjang berkualitas tinggi dalam hitungan detik menggunakan AI — dalam bahasa Inggris dan Bahasa Malaysia.",
     "easytools-social": "Buat caption media sosial yang memikat, tagar, kalender konten, dan ide postingan viral untuk Facebook, Instagram, TikTok, dan LinkedIn.",
@@ -538,6 +548,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "Xử lý phiếu hỗ trợ, khiếu nại và yêu cầu của khách hàng trong một hệ thống bộ phận hỗ trợ có cấu trúc. Theo dõi trạng thái phiếu, giao cho thành viên trong nhóm, trả lời qua email và đo lường mức độ hài lòng của khách hàng bằng điểm CSAT.",
     "easydo-agent": "Gặp gỡ Asha — trợ lý bán hàng được hỗ trợ bởi AI, chủ động tiếp cận khách hàng tiềm năng, trả lời câu hỏi, đánh giá triển vọng và thúc đẩy giao dịch suốt ngày đêm. Tự động hóa toàn bộ quy trình hội thoại bán hàng mà không cần tuyển thêm nhân sự.",
     "easydo-booking": "Cho phép khách hàng đặt lịch hẹn, tư vấn và dịch vụ trực tuyến — mọi lúc, mọi nơi. Quản lý lịch của bạn, cài đặt thời gian trống, gửi nhắc nhở và giảm thiểu tình trạng vắng mặt với hệ thống đặt lịch thông minh được hỗ trợ bởi AI.",
+    "easydo-mai": "Hỏi về chính không gian làm việc của bạn bằng ngôn ngữ thường ngày — khách hàng tiềm năng, cơ hội, công việc, lịch hẹn, phiếu hỗ trợ và thành viên. Mọi con số đều được tính bằng truy vấn trên dữ liệu của bạn, và bất kỳ thao tác nào làm thay đổi một bản ghi đều quay lại thành yêu cầu chờ bạn duyệt.",
+    "easydo-docintel": "Tải lên một tài liệu hoặc bảng tính và nhận lại các trường của nó dưới dạng đề xuất để bạn xem lại — khách hàng tiềm năng, liên hệ, lịch hẹn và hồ sơ thành viên. Không có gì được ghi vào dữ liệu của bạn cho đến khi bạn chấp nhận, từng bản ghi một.",
     "easytools-main": "Nền tảng tiếp thị AI toàn diện với hơn 40 công cụ, trò chuyện AI, tạo nội dung hàng loạt, trình quản lý tài liệu và bảng điều khiển đầy đủ — được xây dựng cho các doanh nghiệp Malaysia.",
     "easytools-content": "Tạo bài đăng blog, bài viết, nội dung trang đích và nội dung dài chất lượng cao chỉ trong vài giây bằng AI — bằng tiếng Anh và tiếng Mã Lai.",
     "easytools-social": "Tạo chú thích mạng xã hội thu hút, hashtag, lịch nội dung và ý tưởng bài đăng lan truyền cho Facebook, Instagram, TikTok và LinkedIn.",
@@ -622,6 +634,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "تعامل مع تذاكر العملاء والشكاوى والاستفسارات في نظام مكتب مساعدة منظّم. تابِع حالة التذاكر، ووزّعها على أعضاء الفريق، وردّ عبر البريد الإلكتروني، وقِس رضا العملاء بدرجات CSAT.",
     "easydo-agent": "تعرّف على آشا — وكيل مبيعاتك المدعوم بالذكاء الاصطناعي الذي يتفاعل مع العملاء المحتملين، ويجيب على أسئلتهم، ويؤهّل العملاء، ويُنجز الصفقات على مدار الساعة. أتمتة تدفق محادثات المبيعات بالكامل دون الحاجة إلى توظيف موظفين إضافيين.",
     "easydo-booking": "دَع عملاءك يحجزون المواعيد والاستشارات والخدمات عبر الإنترنت — في أي وقت وأي مكان. أدِر تقويمك، وحدِّد أوقات توفّرك، وأرسل تذكيرات، وقلِّل حالات الغياب بنظام حجز ذكي مدعوم بالذكاء الاصطناعي.",
+    "easydo-mai": "اسأل عن مساحة عملك بلغة عادية — العملاء المحتملون والصفقات والمهام والمواعيد والتذاكر والأعضاء. كل رقم يُحسب باستعلام على سجلاتك، وأي إجراء يغيّر سجلاً يعود إليك طلباً توافق عليه أولاً.",
+    "easydo-docintel": "ارفع مستنداً أو جدول بيانات واسترجع حقوله كمقترحات تراجعها — عملاء محتملون وجهات اتصال ومواعيد وسجلات عضوية. لا يُكتب شيء إلى سجلاتك حتى تقبله، سجلاً واحداً في كل مرة.",
     "easytools-main": "منصة تسويق شاملة بالذكاء الاصطناعي تضم أكثر من 40 أداة، ودردشة بالذكاء الاصطناعي، وإنشاء محتوى بالجملة، ومدير مستندات، ولوحة تحكم كاملة — مصممة للشركات الماليزية.",
     "easytools-content": "أنشئ منشورات مدونة ومقالات ونصوص صفحات هبوط ومحتوى طويلاً عالي الجودة في ثوانٍ باستخدام الذكاء الاصطناعي — بالإنجليزية والماليزية.",
     "easytools-social": "أنشئ تعليقات لافتة لوسائل التواصل الاجتماعي، ووسوماً، وتقويمات محتوى، وأفكار منشورات رائجة لفيسبوك وإنستغرام وتيك توك ولينكدإن.",
@@ -706,6 +720,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     "easydo-support": "จัดการตั๋ว ข้อร้องเรียน และคำถามของลูกค้าในระบบเฮลป์เดสก์ที่เป็นระเบียบ ติดตามสถานะตั๋ว มอบหมายให้สมาชิกในทีม ตอบกลับทางอีเมล และวัดความพึงพอใจของลูกค้าด้วยคะแนน CSAT",
     "easydo-agent": "พบกับ Asha — ตัวแทนขายที่ขับเคลื่อนด้วย AI ซึ่งติดต่อลูกค้าเป้าหมาย ตอบคำถาม คัดกรองโอกาสทางธุรกิจ และผลักดันดีลตลอด 24 ชั่วโมง ทำให้กระบวนการสนทนาการขายทั้งหมดเป็นอัตโนมัติโดยไม่ต้องเพิ่มพนักงาน",
     "easydo-booking": "ให้ลูกค้าจองนัดหมาย การปรึกษา และบริการออนไลน์ได้ — ทุกที่ทุกเวลา จัดการปฏิทิน กำหนดเวลาว่าง ส่งการเตือนความจำ และลดการไม่มาตามนัดด้วยระบบการจองอัจฉริยะที่ใช้ AI",
+    "easydo-mai": "ถามเกี่ยวกับพื้นที่ทำงานของคุณเองด้วยภาษาทั่วไป — ลูกค้ามุ่งหวัง ดีล งาน การจอง ตั๋วงาน และสมาชิก ทุกตัวเลขคำนวณจากการคว่านบนข้อมูลของคุณ และสิ่งใดที่จะเปลี่ยนข้อมูลจะกลับมาเป็นคำขอที่คุณต้องอนุมัติก่อน",
+    "easydo-docintel": "อัปโหลดเอกสารหรือสเปรดชีต แล้วรับข้อมูลในนั้นกลับมาเป็นข้อเสนอให้คุณตรวจทาน — ลูกค้ามุ่งหวัง ผู้ติดต่อ การจอง และบันทึกสมาชิก จะยังไม่มีอะไรถูกบันทึกลงในข้อมูลของคุณจนกว่าคุณจะยอมรับ ทีละหนึ่งรายการ",
     "easytools-main": "แพลตฟอร์มการตลาด AI ครบวงจรพร้อมเครื่องมือกว่า 40 รายการ แชท AI การสร้างเนื้อหาจำนวนมาก ตัวจัดการเอกสาร และแดชบอร์ดที่สมบูรณ์ — สร้างขึ้นสำหรับธุรกิจในมาเลเซีย",
     "easytools-content": "สร้างบล็อกโพสต์ บทความ ข้อความหน้า Landing Page และเนื้อหาแบบยาวคุณภาพสูงในไม่กี่วินาทีโดยใช้ AI — ทั้งภาษาอังกฤษและภาษามาเลย์",
     "easytools-social": "สร้างแคปชันโซเชียลมีเดียที่สะดุดตา แฮชแท็ก ปฏิทินเนื้อหา และไอเดียโพสต์ไวรัลสำหรับ Facebook, Instagram, TikTok และ LinkedIn",
@@ -801,8 +817,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     en: {
       title: "Our",
       titleHighlight: "Systems",
-      subtitle: "Six complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ and M-EasyPOS AI+ — broken into 82 integrated systems to run and grow your business. Click any system to open it.",
-      easyDoTagline: "CRM, omnichannel inbox, marketing automation, customer support, Asha AI sales agent & booking",
+      subtitle: "Six complete AI ecosystems — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ and M-EasyPOS AI+ — broken into 84 integrated systems to run and grow your business. Click any system to open it.",
+      easyDoTagline: "CRM, omnichannel inbox, marketing automation, support, Asha AI sales agent, booking, M-Ai & document intelligence",
       easyToolsTagline: "AI content, social, mail, ads, SEO, commerce, sales, PR, audiobooks & more",
       easyCommerceTagline: "Full AI e-commerce ops — inventory, orders, webstore, POS, channels, payments & shipping",
       easyHalalTagline: "Halal discovery, faith, finance, commerce, community, education & governance",
@@ -814,8 +830,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     bm: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dipecahkan kepada 82 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
-      easyDoTagline: "CRM, peti masuk omnisaluran, automasi pemasaran, sokongan pelanggan, ejen jualan AI Asha & tempahan",
+      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dipecahkan kepada 84 sistem bersepadu untuk menjalankan dan mengembangkan perniagaan anda. Klik mana-mana sistem untuk membukanya.",
+      easyDoTagline: "CRM, peti masuk omnisaluran, automasi pemasaran, sokongan, ejen jualan AI Asha, tempahan, M-Ai & kecerdasan dokumen",
       easyToolsTagline: "Kandungan AI, sosial, mel, iklan, SEO, e-dagang, jualan, PR, audiobook & lagi",
       easyCommerceTagline: "Operasi e-dagang AI penuh — inventori, pesanan, kedai web, POS, saluran, pembayaran & penghantaran",
       easyHalalTagline: "Penemuan halal, keimanan, kewangan, e-dagang, komuniti, pendidikan & tadbir urus",
@@ -827,8 +843,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     cn: {
       title: "我们的",
       titleHighlight: "系统",
-      subtitle: "六个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+、M-EasySchool AI+ 与 M-EasyPOS AI+——拆分为 82 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
-      easyDoTagline: "CRM、全渠道收件箱、营销自动化、客户支持、Asha AI 销售代理与预约",
+      subtitle: "六个完整的 AI 生态系统——M-EasyDo AI+、M-EasyTools AI+、M-EasyCommerce AI+、M-EasyHalal AI+、M-EasySchool AI+ 与 M-EasyPOS AI+——拆分为 84 个集成系统，助力您经营和发展业务。点击任意系统即可打开。",
+      easyDoTagline: "CRM、全渠道收件箱、营销自动化、客户支持、Asha AI 销售代理、预约、M-Ai 与文档智能",
       easyToolsTagline: "AI 内容、社交、邮件、广告、SEO、电商、销售、公关、有声书等",
       easyCommerceTagline: "全套 AI 电商运营——库存、订单、网店、POS、渠道、支付与物流",
       easyHalalTagline: "清真发现、信仰、金融、电商、社区、教育与治理",
@@ -840,8 +856,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     id: {
       title: "Sistem",
       titleHighlight: "Kami",
-      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dibagi menjadi 82 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
-      easyDoTagline: "CRM, kotak masuk omnichannel, otomasi pemasaran, dukungan pelanggan, agen penjualan AI Asha & pemesanan",
+      subtitle: "Enam ekosistem AI lengkap — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ dan M-EasyPOS AI+ — dibagi menjadi 84 sistem terintegrasi untuk menjalankan dan mengembangkan bisnis Anda. Klik sistem mana pun untuk membukanya.",
+      easyDoTagline: "CRM, kotak masuk omnichannel, otomasi pemasaran, dukungan, agen penjualan AI Asha, pemesanan, M-Ai & inteligensi dokumen",
       easyToolsTagline: "Konten AI, sosial, email, iklan, SEO, e-commerce, penjualan, PR, audiobook & lainnya",
       easyCommerceTagline: "Operasi e-commerce AI lengkap — inventaris, pesanan, webstore, POS, saluran, pembayaran & pengiriman",
       easyHalalTagline: "Penemuan halal, keimanan, keuangan, e-commerce, komunitas, pendidikan & tata kelola",
@@ -853,8 +869,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     vn: {
       title: "Hệ Thống",
       titleHighlight: "Của Chúng Tôi",
-      subtitle: "Sáu hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ và M-EasyPOS AI+ — được chia thành 82 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
-      easyDoTagline: "CRM, hộp thư đa kênh, tự động hóa tiếp thị, hỗ trợ khách hàng, trợ lý bán hàng AI Asha & đặt lịch",
+      subtitle: "Sáu hệ sinh thái AI hoàn chỉnh — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ và M-EasyPOS AI+ — được chia thành 84 hệ thống tích hợp để vận hành và phát triển doanh nghiệp của bạn. Nhấp vào bất kỳ hệ thống nào để mở.",
+      easyDoTagline: "CRM, hộp thư đa kênh, tự động hóa tiếp thị, hỗ trợ, trợ lý bán hàng AI Asha, đặt lịch, M-Ai & trí tuệ tài liệu",
       easyToolsTagline: "Nội dung AI, mạng xã hội, email, quảng cáo, SEO, thương mại, bán hàng, PR, sách nói & hơn nữa",
       easyCommerceTagline: "Vận hành thương mại điện tử AI toàn diện — kho hàng, đơn hàng, cửa hàng trực tuyến, POS, kênh bán, thanh toán & vận chuyển",
       easyHalalTagline: "Khám phá halal, đức tin, tài chính, thương mại, cộng đồng, giáo dục & quản trị",
@@ -866,8 +882,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     ar: {
       title: "أنظمتنا",
       titleHighlight: "المتكاملة",
-      subtitle: "ست منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ و M-EasyPOS AI+ — مقسمة إلى 82 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
-      easyDoTagline: "إدارة العلاقات وصندوق موحّد لكل القنوات وأتمتة التسويق ودعم العملاء ووكيل المبيعات Asha والحجوزات",
+      subtitle: "ست منظومات متكاملة للذكاء الاصطناعي — M-EasyDo AI+ و M-EasyTools AI+ و M-EasyCommerce AI+ و M-EasyHalal AI+ و M-EasySchool AI+ و M-EasyPOS AI+ — مقسمة إلى 84 نظاماً متكاملاً لإدارة أعمالك وتنميتها. انقر على أي نظام لفتحه.",
+      easyDoTagline: "إدارة العلاقات وصندوق موحّد لكل القنوات وأتمتة التسويق والدعم ووكيل المبيعات Asha والحجوزات وM-Ai وذكاء المستندات",
       easyToolsTagline: "محتوى الذكاء الاصطناعي والتواصل الاجتماعي والبريد والإعلانات وتحسين محركات البحث والتجارة والمبيعات والعلاقات العامة والكتب الصوتية والمزيد",
       easyCommerceTagline: "عمليات تجارة إلكترونية كاملة بالذكاء الاصطناعي — المخزون والطلبات والمتجر الإلكتروني ونقاط البيع والقنوات والمدفوعات والشحن",
       easyHalalTagline: "اكتشاف الحلال والإيمان والتمويل والتجارة والمجتمع والتعليم والحوكمة",
@@ -879,8 +895,8 @@ export const SYSTEM_DESCRIPTIONS: Record<Lang, Record<SystemId, string>> = {
     th: {
       title: "ระบบ",
       titleHighlight: "ของเรา",
-      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์หกระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ และ M-EasyPOS AI+ — แบ่งออกเป็น 82 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
-      easyDoTagline: "CRM, กล่องข้อความรวมทุกช่องทาง, ระบบการตลาดอัตโนมัติ, การสนับสนุนลูกค้า, ตัวแทนขาย AI Asha และการจอง",
+      subtitle: "ระบบนิเวศ AI ที่สมบูรณ์หกระบบ — M-EasyDo AI+, M-EasyTools AI+, M-EasyCommerce AI+, M-EasyHalal AI+, M-EasySchool AI+ และ M-EasyPOS AI+ — แบ่งออกเป็น 84 ระบบที่เชื่อมต่อกันเพื่อดำเนินและขยายธุรกิจของคุณ คลิกที่ระบบใดก็ได้เพื่อเปิด",
+      easyDoTagline: "CRM, กล่องข้อความรวมทุกช่องทาง, ระบบการตลาดอัตโนมัติ, การสนับสนุน, ตัวแทนขาย AI Asha, การจอง, M-Ai และการอ่านเอกสารด้วย AI",
       easyToolsTagline: "เนื้อหา AI, โซเชียล, อีเมล, โฆษณา, SEO, อีคอมเมิร์ซ, การขาย, PR, หนังสือเสียง และอื่นๆ",
       easyCommerceTagline: "การดำเนินงานอีคอมเมิร์ซด้วย AI ครบวงจร — สินค้าคงคลัง คำสั่งซื้อ เว็บสโตร์ POS ช่องทาง การชำระเงิน และการจัดส่ง",
       easyHalalTagline: "การค้นหาฮาลาล ศรัทธา การเงิน อีคอมเมิร์ซ ชุมชน การศึกษา และธรรมาภิบาล",

@@ -45,10 +45,11 @@ Building the world's first AI-native business and lifestyle operating system.
 ## Products — AI+ Super Apps
 
 MODUS AI Associates operates a suite of AI-native enterprise Super Apps,
-comprising 82 integrated AI subsystems.
+comprising 84 integrated AI subsystems.
 
 - M-EasyDo AI+ Super App — CRM, omnichannel communication, booking, email
-  marketing, marketing automation, customer support and the Asha AI sales agent.
+  marketing, marketing automation, customer support, the Asha AI sales agent,
+  the M-Ai workspace assistant and document intelligence.
   https://m-easydo-ai-production.up.railway.app/
 - M-EasyTools AI+ Super App — AI content, social media, mail, ads and SEO tools
   for marketing teams and SMEs.
